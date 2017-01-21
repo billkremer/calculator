@@ -4,12 +4,12 @@ This is a simple web calculator which can do basic math.
 
 
 
-##Authors:
+###Author:
 ###Bill Kremer
 
 ###Date of Publication: January 22, 2017
 
-###Technology Used
+###Technology Used:
 
 Express, Node, Git, HTML, CSS
 
