@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+npm-debug.log
+vendors
+jquery-3.1.1.min.js
