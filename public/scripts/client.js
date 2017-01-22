@@ -25,8 +25,13 @@ function doMath(event) {
   // get the information out of the form and POSTs it
   var mathData = $(this).serialize(); // xValue=7&yValue=14&operation=add
 
+
+var a = mathData.indexOf('=', mathData.length - 13);
+var b = mathData.substring(a+1);
+// a and b are placeholders to determine the route.
+
   $.ajax({
-    url: '/math',
+    url: '/math/' + b,
     type: 'POST',
     data: mathData,
     success: getResult,
@@ -47,6 +52,9 @@ function getResult () {
 function displayResult (mathData) {
 // this function takes the results of the GET request and appends it to the DOM
 // mathData: Object {xValue: "7", yValue: "14", operation: "add", result: 21, resultString: "7 + 14 = 21"}
+console.log(mathData);
+
+
 
 var mathToDisplay = '<p>' + mathData.resultString + '</p>'; // the new result
 var currentDisplay = $('#calculatorDisplay').html();  // the previous results.
