@@ -2,25 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="../assets/vendors/jquery-3.1.1.min.js"></script>
-    <script src="../scripts/client.js"></script>
-    <link rel="stylesheet" href="../views/styles.css" />
+    <script src="/assets/vendors/jquery-3.1.1.min.js"></script>
+    <script src="/scripts/client.js"></script>
+    <link rel="stylesheet" href="/assets/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="/views/styles.css" />
     <title>Calculator</title>
   </head>
   <body>
     <h1>Calculator!</h1>
 
-    <section id='container'>
-      <form id="calculator">
+    <section class='container'>
+      <!-- <form id="calculator">
         <label for="xValue">X:</label>
         <input id ="xValue" type="number" name="xValue" value=7 step='any'/>
 
         <label for="yValue">Y:</label>
-        <input id="yValue" type="number" name="yValue" value=14 step='any' />
+        <input id="yValue" type="number" name="yValue" value=14 step='any' /> -->
 
         <!-- <label for="operation">Operation:</label> -->
 
-        <input id="addOper" type="radio" name="operation" value="add" checked />
+        <!-- <input id="addOper" type="radio" name="operation" value="add" checked />
         <label for="addOper">Add</label>
 
         <input id="subtractOper" type="radio" name="operation" value="subtract"  />
@@ -40,18 +41,111 @@
         <input id="clearMath" type="reset" value="Clear Math"  />
 
 
+      </form> -->
+
+      <form id="calculator">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1" id="calculatorDisplay">
+           <p></p> <!--these <p> tags are used to show the last 5 calculations. -->
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          </div>
+
+
+
+        </div>
+
+    <div class="row">
+
+          <input id="clearMath" type="reset" value="Clear Math"  />
+          <input id="backspace" type="reset" value="backspace"  />
+          <input id="sqrtOper" type="radio" name="operation" value="squareRoot" />
+          <label for="sqrtOper">&radic;<span style="text-decoration: overline">&nbsp;&nbsp;</span></label>
+          <input id="divideOper" type="radio" name="operation" value="divide" />
+          <label for="divideOper">&divide;</label>
+
+
+        </div>
+
+<div class="row">
+  <label for="seven">7</label>
+  <input id="seven" type="number" name="seven" value=7 step=0 min=7 max=7 />
+
+  <label for="eight">8</label>
+  <input id="eight" type="number" name="eight" value=8 step=0 min=8 max=8 />  <label for="nine">9</label>
+    <input id="nine" type="number" name="nine" value=9 step=0 min=9 max=9 />
+    <input id="multiplyOper" type="radio" name="operation" value="multiply"  />
+    <label for="multiplyOper">&times;</label>
+
+  </div>
+
+<div class="row">
+  <label for="four">4</label>
+  <input id="four" type="number" name="four" value=4 step=0 min=4 max=4 />
+
+  <label for="five">5</label>
+  <input id="five" type="number" name="five" value=5 step=0 min=5 max=5 />
+  <label for="six">6</label>
+    <input id="six" type="number" name="six" value=6 step=0 min=6 max=6 />
+
+    <input id="subtractOper" type="radio" name="operation" value="subtract"  />
+    <label for="subtractOper">-</label>
+</div>
+
+<div class="row">
+  <label for="one">1</label>
+  <input id="one" type="number" name="one" value=1 step=0 min=1 max=1 />
+
+  <label for="two">2</label>
+  <input id="two" type="number" name="two" value=2 step=0 min=2 max=2 />
+  <label for="three">3</label>
+    <input id="three" type="number" name="three" value=3 step=0 min=3 max=3 />
+    <input id="addOper" type="radio" name="operation" value="add" checked />
+    <label for="addOper"> + </label>
+
+
+</div>
+
+<div class="row">
+  <label for="zero">0</label>
+    <input id="zero" type="number" name="zero" value=0 step=0 min=0 max=0 />
+    <label for="decimal"> . </label>
+      <input id="decimal" type="text" name="decimal" value="." />
+      <label for="plusMinus">+/-</label>
+        <input id="plusMinus" type="text" name="plusMinus" value="+/-" />
+
+  <input id="calculateButton" type="submit" value="Calculate"  />  <label for="calculateButton">=</label>
+</div>
+
+
+<div class=row>
+        <label for="xValue">X:</label>
+        <input id ="xValue" type="number" name="xValue" value=7 step='any'/>
+
+        <label for="yValue">Y:</label>
+        <input id="yValue" type="number" name="yValue" value=14 step='any' />
+
+        <!-- <label for="operation">Operation:</label> -->
+
+        </div>
+
       </form>
+
+
+
 
       <!-- <button id="clearMath">Clear</button> -->
 <h2>Results!</h2>
 <button id="clearResults">Clear Results</button>
-<div id="calculatorDisplay">
+<!-- <div id="calculatorDisplay">
  <p></p> <!--these <p> tags are used to show the last 5 calculations. -->
+<!--<p></p>
 <p></p>
 <p></p>
 <p></p>
-<p></p>
-</div>
+</div> -->
 
     </section>
 
