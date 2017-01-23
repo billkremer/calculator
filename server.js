@@ -5,8 +5,6 @@ var bodyParser = require('body-parser');
 // var songs = require('./data.json'); //
 var math = require('./routes/math');
 
-
-
 var app = express();
 
 app.use(express.static('public'));
@@ -21,6 +19,5 @@ app.use('/math', math);
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
-
 
 app.listen(3000);
