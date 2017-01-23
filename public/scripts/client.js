@@ -1,5 +1,5 @@
-var xySwitch = "x";
-var operatorSetFlag = false;
+var xySwitch = "x";  // this determines which value is being constructed
+var operatorSetFlag = false; // this says whether the operation has been set.  users can change the operation until it is set.
 
 var newMathDataObject = {
   xValueString: "",
@@ -7,29 +7,29 @@ var newMathDataObject = {
   operation: "",
   result: "",
   resultString: "",
-}
+};
 
 
 $(function(){
   console.log('document loaded');
 
-  $('button').on('click', function (event) {
+  $('button').on('click', function (event) { // looks for all button clicks
     event.preventDefault(); // prevents page reloading
 
     if ($(this).hasClass('calcNumber')) {
+    // this if appends the numbers that were pressed.
       newMathDataObject[xySwitch+'ValueString'] += $(this).val();
-      console.log(newMathDataObject.xValueString, "xValueString");
-      console.log(newMathDataObject.yValueString,"yValueString");
+      // appends each new number to the string
 
       if (xySwitch == "y") {
         operatorSetFlag = true;
-      }; // makes sure a second operator isn't set after yValue entrys
+      }; // makes sure a second operator isn't set after yValue entrys are started
     redrawCurrentCalculation(newMathDataObject);
-    }; // works // closes hasClass calcNumber
+    };  // closes hasClass calcNumber
 
 
     if ($(this).hasClass('decimal')) {
-    // need to make sure we haven't already added a decimal
+    // this if appends a decimal that was pressed. need to make sure we haven't already added a decimal too
 
       if (xySwitch == "y") {
         operatorSetFlag = true;
@@ -37,49 +37,58 @@ $(function(){
 
     if (newMathDataObject[xySwitch+'ValueString'] == "") {
       newMathDataObject[xySwitch+'ValueString'] = "0"
-    };
+    }; // makes sure we have "0." not just "."
 
       if (newMathDataObject[xySwitch+'ValueString'].indexOf(".") == -1) {
-      // -1 indicates it does not exist
+      // -1 indicates a decimal does not already exist
         newMathDataObject[xySwitch+'ValueString'] += $(this).val();
-        console.log(newMathDataObject.xValueString, "xValueString");
-        console.log(newMathDataObject.yValueString,"yValueString");
       };
       redrawCurrentCalculation(newMathDataObject);
-    }; // closes hasclass decimal // works
-
+    }; // closes hasclass decimal
 
 
     if ($(this).attr('id') == "plusMinus") {
-      if (newMathDataObject[xySwitch+'ValueString'] == "") {
-        newMathDataObject[xySwitch+'ValueString'] = "-"
+    // this if adds or removes the negative sign "-"
+      if (newMathDataObject[xySwitch+'ValueString'] == "" || newMathDataObject[xySwitch+'ValueString'] == "0") {
+        newMathDataObject[xySwitch+'ValueString'] = "-"; // only want one - to start a line.
+      } else if ( newMathDataObject[xySwitch+'ValueString'] == "-") {
+        newMathDataObject[xySwitch+'ValueString'] == "";
       } else {
         newMathDataObject[xySwitch+'ValueString'] =  (-1) * (parseFloat(newMathDataObject[xySwitch+'ValueString']));
         newMathDataObject[xySwitch+'ValueString'] = String(newMathDataObject[xySwitch+'ValueString']);
-      };
+      }; // multiplys then changes back to a string in case of further string growth
 
       redrawCurrentCalculation(newMathDataObject);
     }; // closes plusMinus
 
     if($(this).attr('id') == "backspace") {
+    // this if deletes the last character input.
         var i = newMathDataObject[xySwitch+'ValueString'].length - 1;
         newMathDataObject[xySwitch+'ValueString'] = newMathDataObject[xySwitch+'ValueString'].substring(0,i);
         // console.log( newMathDataObject[xySwitch+'ValueString'] ,'backsies');
         redrawCurrentCalculation(newMathDataObject);
-    }
+    }; // removes the last character of the string.
 
     if($(this).attr('id') == "clearMath") {
       resetCalculation();
       redrawCurrentCalculation(newMathDataObject);
+      clearResults();
     };
 
 
     if ($(this).hasClass('operator')) {
+    // this if inputs the character, and sets x to 0 if it hasn't been inputted.
       if (!operatorSetFlag) { // the operator is set when the yValue entry is started
           // if the opeartor is set, we don't want to add another now.
         if (newMathDataObject.xValueString == "") {newMathDataObject.xValueString = "0"};
         xySwitch = "y";
         newMathDataObject.operation = $(this).val();  // this ensures that it can change until the yvalue is started and the
+
+        if (newMathDataObject.operation == "squareRoot") {
+          newMathDataObject.yValueString = 0;
+          operatorSetFlag = true;
+        };
+
       };
       redrawCurrentCalculation(newMathDataObject);
     }; // hasclass operator closer
@@ -87,19 +96,19 @@ $(function(){
     if ($(this).hasClass('equals')) {
       if (newMathDataObject.yValueString == "") {newMathDataObject.yValueString = 0};
 
-      console.log(newMathDataObject);
-
+      if (operatorSetFlag) { // makes sure we have all the necessary info.
        doMath(newMathDataObject);
 
        //reset newMathDataObject
        resetCalculation();
        redrawCurrentCalculation(newMathDataObject);
+     };
     }; // equals closer
-
-  }); // close big  click function with ifs
+  }); // close big click function with ifs
 }); // closes doc ready
 
 function redrawCurrentCalculation(newMathDataObject) {
+// this function redraws the current display when entering data.
   $('#currentCalculationDisplay').empty();
 
   var mathSymbols = {
@@ -111,7 +120,6 @@ function redrawCurrentCalculation(newMathDataObject) {
   };
 
   var operatorPlaceHolder = mathSymbols[newMathDataObject.operation];
-
 
   if ( operatorPlaceHolder == undefined ) {
     operatorPlaceHolder = "";
@@ -126,10 +134,7 @@ function redrawCurrentCalculation(newMathDataObject) {
   }; // creates string for typical math
 
   $('#currentCalculationDisplay').append($displayString);
-
-
-
-};
+}; // closes redrawCurrentCalculation
 
 
 function resetCalculation () {
@@ -143,19 +148,19 @@ function resetCalculation () {
                         resultString: "",
                       };
   redrawCurrentCalculation(newMathDataObject);
-};
+}; // closes resetCalculation
 
 
 function clearResults () {
 // this function clears the calculation result queue
   $('#previousCalculationDisplay').html( '<p></p> <p></p> <p></p> <p></p> <p></p>');
   // 5 <p> tags allows the display to limit to 5 previous results.
+  $('#errormessage').empty();
 }; // closes clearResults
 
 
 function doMath(mathData) {
-
-console.log(mathData); //
+// this function takes the data and sends it to the server to be calculated.
 
   $.ajax({
     url: '/math/' + mathData.operation,
@@ -174,13 +179,12 @@ function getResult () {
     type: 'GET',
     success: displayResult
   });
-}
+}; // closes getResult
 
 
 function displayResult (mathData) {
 // this function takes the results of the GET request and appends it to the DOM
 // mathData: Object {xValue: "7", yValue: "14", operation: "add", result: 21, resultString: "7 + 14 = 21"}
-console.log(mathData);
 
 var mathToDisplay = '<p>' + mathData.resultString + '</p>'; // the new result
 var currentDisplay = $('#previousCalculationDisplay').html();  // the previous results.
@@ -216,5 +220,4 @@ $('#previousCalculationDisplay').append(currentDisplay);
 function displayError (response) {
   console.log('error response: ', response);
   $('#errormessage').text('Could not complete calculation: ' + response.responseText);
-
 };
