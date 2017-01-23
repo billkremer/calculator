@@ -14,14 +14,13 @@ res.send(mathProblemObject); // this is the object with the data
 }); // closes / get
 
 
-
-
 // do all the math here
 var result = 0;
 var resultString = "";
 
+
 router.post('/add', function (req, res) {
-  console.log('got here!' , req.body);
+  // console.log('got here!' , req.body);
   result = parseFloat(req.body.xValueString) + parseFloat(req.body.yValueString);
   resultString = req.body.xValueString+ " + " + req.body.yValueString+ " = " + result;
   req.body.result = result; // adds result to req body
@@ -69,24 +68,22 @@ router.post('/divide', function (req, res) {
 
 
 router.post ('/squareRoot', function (req, res) {
-    if (req.body.xValueString< 0) {
-      result = req.body.xValueString;
-      resultString = 'The Calculator cannot calculate a square root of a negative number. (' + req.body.xValueString+ ')';
-    } else {
-      result = Math.sqrt(req.body.xValueString);
-      resultString = '&radic;<span id="sqrRt" style="text-decoration: overline">&nbsp;' + req.body.xValueString+ '&nbsp;</span> = ' + result;
-    };
+  if (req.body.xValueString< 0) {
+    result = req.body.xValueString;
+    resultString = 'The Calculator cannot calculate a square root of a negative number. (' + req.body.xValueString+ ')';
+  } else {
+    result = Math.sqrt(req.body.xValueString);
+    resultString = '&radic;<span id="sqrRt" style="text-decoration: overline">&nbsp;' + req.body.xValueString+ '&nbsp;</span> = ' + result;
+  };
 
-    req.body.result = result; // adds result to req body
-    req.body.resultString = resultString; // adds resultString to req body
+  req.body.result = result; // adds result to req body
+  req.body.resultString = resultString; // adds resultString to req body
 
-    mathProblemObject = req.body;
-    res.sendStatus(200);
+  mathProblemObject = req.body;
+  res.sendStatus(200);
 });
 
-
-
-
+module.exports = router;
 
 // router.post('/', function (req, res) {
 //   // console.log(req.body, 'requbody mathjs123');
@@ -147,5 +144,3 @@ router.post ('/squareRoot', function (req, res) {
 //     res.sendStatus(200);
 //
 // }); // closes / post
-
-module.exports = router;
