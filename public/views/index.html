@@ -1,96 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="/assets/vendors/jquery-3.1.1.min.js"></script>
-    <script src="/scripts/client.js"></script>
-    <link rel="stylesheet" href="/assets/vendors/bootstrap.min.css" />
-    <link rel="stylesheet" href="/views/styles.css" />
-    <title>Calculator</title>
-  </head>
-  <body>
-    <h1>Calculator!</h1>
+<head>
+  <meta charset="utf-8">
+  <script src="/assets/vendors/jquery-3.1.1.min.js"></script>
+  <script src="/scripts/client.js"></script>
+  <link rel="stylesheet" href="/assets/vendors/bootstrap.min.css" />
+  <link rel="stylesheet" href="/views/styles.css" />
+  <title>Calculator</title>
+</head>
+<body>
 
-    <section class='container'>
-
-      <form id="calculator">
-        <div class="row">
-          <div id="currentCalculationDisplay"><p>
-            0
-          </p>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12" id="previousCalculationDisplay">
-           <p></p> <!--these <p> tags are used to show the last 5 calculations. -->
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          </div>
-
-
-
-        </div>
+  <section class='container'>
 
     <div class="row">
+      <div class= "col-xs-12">
+        <h1>Calculator!</h1>
+      </div>
+    </div>
 
+    <form id="calculator">
+      <div class="row">
+        <div id="currentCalculationDisplay" class= "col-xs-12">
+          <p>0</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12" id="previousCalculationDisplay">
+          <p></p> <!--these <p> tags are used to show the last 5 calculations. -->
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
           <button id="clearMath" class="btn btn-danger" value="Clear Math" >C</button>
           <button id="backspace" class="btn btn-danger" value="backspace">del</button>
           <button class="operator btn btn-warning" id="sqrtOper" name="operation" value="squareRoot" >&radic;<span id="sqrRt">&nbsp;&nbsp;</span></button>
           <button class="operator btn btn-warning" id="divideOper" name="operation" value="divide" >&divide;</button>
-
-
         </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="calcNumber btn btn-info" id="seven" type="text" name="seven" value="7" >7</button>
+          <button class="calcNumber btn btn-info" id="eight" type="text" name="eight" value="8" >8</button>
+          <button class="calcNumber btn btn-info" id="nine" type="text" name="nine" value="9" >9</button>
+          <button class="operator btn btn-warning" id="multiplyOper" name="operation" value="multiply" >&times;</button>
+        </div>
+      </div>
 
-<div class="row">
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="calcNumber btn btn-info" id="four" type="text" name="four" value="4" >4</button>
+          <button class="calcNumber btn btn-info" id="five" type="text" name="five" value="5" >5</button>
+          <button class="calcNumber btn btn-info" id="six" type="text" name="six" value="6" >6</button>
+          <button class="operator btn btn-warning" id="subtractOper" name="operation" value="subtract">-</button>
+        </div>
+      </div>
 
-  <button class="calcNumber btn btn-info" id="seven" type="text" name="seven" value="7" >7</button>
-  <button class="calcNumber btn btn-info" id="eight" type="text" name="eight" value="8" >8</button>
-  <button class="calcNumber btn btn-info" id="nine" type="text" name="nine" value="9" >9</button>
-  <button class="operator btn btn-warning" id="multiplyOper" name="operation" value="multiply" >&times;</button>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="calcNumber btn btn-info" id="one" type="text" name="one" value="1"  >1</button>
+
+          <button class="calcNumber btn btn-info" id="two" type="text" name="two" value="2"  >2</button>
+          <button class="calcNumber btn btn-info" id="three" type="text" name="three" value="3" >3</button>
+          <button class="operator btn btn-warning" id="addOper" name="operation" value="add" >+</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="calcNumber btn btn-info" id="zero" type="text" name="zero" value="0" >0</button>
+          <button class="decimal btn btn-info" id="decimal" type="text" name="decimal" value="." > . </button>
+          <button id="plusMinus" class="btn btn-info"  name="plusMinus" value="+/-" >+/-</button>
+          <button class="equals btn btn-warning" id="calculateButton" type="submit" value="equals" >=</button>
+        </div>
+      </div>
+    </form>
+
+  </section>
+
+  <div id='errormessage'>
 
   </div>
 
-<div class="row">
-  <button class="calcNumber btn btn-info" id="four" type="text" name="four" value="4" >4</button>
-  <button class="calcNumber btn btn-info" id="five" type="text" name="five" value="5" >5</button>
-  <button class="calcNumber btn btn-info" id="six" type="text" name="six" value="6" >6</button>
-    <button class="operator btn btn-warning" id="subtractOper" name="operation" value="subtract">-</button>
-</div>
 
-<div class="row">
-
-
-  <button class="calcNumber btn btn-info" id="one" type="text" name="one" value="1"  >1</button>
-
-  <button class="calcNumber btn btn-info" id="two" type="text" name="two" value="2"  >2</button>
-    <button class="calcNumber btn btn-info" id="three" type="text" name="three" value="3" >3</button>
-    <button class="operator btn btn-warning" id="addOper" name="operation" value="add" >+</button>
-
-</div>
-
-<div class="row">
-
-    <button class="calcNumber btn btn-info" id="zero" type="text" name="zero" value="0" >0</button>
-    <button class="decimal btn btn-info" id="decimal" type="text" name="decimal" value="." > . </button>
-    <button id="plusMinus" class="btn btn-info"  name="plusMinus" value="+/-" >+/-</button>
-    <button class="equals btn btn-warning" id="calculateButton" type="submit" value="equals" >=</button>
-</div>
-
-
-      </form>
-
-
-
-    </section>
-
-    <div id='errormessage'>
-
-    </div>
-
-
-  </body>
+</body>
 </html>
