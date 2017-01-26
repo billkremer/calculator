@@ -13,8 +13,8 @@ This is a simple web calculator which can do basic math.
 
 Express, Node, Git, HTML, CSS
 
-Please use ```npm init``` to start creating the framework in the terminal, then ```npm install express --save``` followed by ```npm install body-parser --save```.
+Please use ```npm install``` to start creating the framework in the terminal.
 
-To start, type ```node server.js``` in the terminal.
+To start, type ```npm start``` in the terminal.
 
-For advanced users, edit package.json, and add ``` , "start": "node server.js" ``` to the "scripts" object.  Please be careful with the JSON syntax.  Then ```npm start``` may be entered in the terminal.
+Navigate to http://localhost:3000
