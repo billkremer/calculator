@@ -34,6 +34,7 @@ h1 {
   margin: 5px 5px;
   padding: 5px 5px;
   border-radius: 5px;
+
 }
 #previousCalculationDisplay {
   min-height: 160px;
@@ -41,7 +42,7 @@ h1 {
 }
 
 #currentCalculationDisplay {
-  min-height: 50px;
+  min-height: 70px;
   font-size: 2em;
 }
 
