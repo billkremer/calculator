@@ -1,13 +1,13 @@
 ## Weekend Three Challenge -- Calculator!
 
-This is a simple web calculator which can do basic math.  
-
+This is a simple web calculator which can do basic math.  This calculator uses jQuery and express routes to perform basic calculations as one would expect from a desktop calculator.
 
 
 ### Author:
-### Bill Kremer
+Bill Kremer
 
-### Date of Publication: January 22, 2017
+### Date of Publication:
+January 22, 2017
 
 ### Technology Used:
 
