@@ -1,15 +1,15 @@
-##Weekend Three Challenge -- Calculator!
+## Weekend Three Challenge -- Calculator!
 
 This is a simple web calculator which can do basic math.  
 
 
 
-###Author:
-###Bill Kremer
+### Author:
+### Bill Kremer
 
-###Date of Publication: January 22, 2017
+### Date of Publication: January 22, 2017
 
-###Technology Used:
+### Technology Used:
 
 Express, Node, Git, HTML, CSS
 
@@ -21,5 +21,5 @@ Navigate to http://localhost:3000
 
 
 
-#This application is now available on Heroku:
+# This application is now available on Heroku:
 https://agile-reef-68577.herokuapp.com/
