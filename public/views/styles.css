@@ -49,3 +49,8 @@ h1 {
 #sqrRt {
   text-decoration: overline;
 }
+
+#moreInfo, #moreInfo a {
+  color: black;
+  background-color: #ec971f;
+}
