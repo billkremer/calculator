@@ -14,7 +14,7 @@ January 22, 2017
 
 ### Technology Used:
 
-Express, Node, Git, HTML, CSS
+Express, Node, Git, HTML, CSS, Bootstrap
 
 Please use ```npm install``` to start creating the framework in the terminal.
 
