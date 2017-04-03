@@ -3,7 +3,7 @@
 This is a simple web calculator which can do basic math.  This calculator uses jQuery and express routes to perform basic calculations as one would expect from a desktop calculator.
 
 # This application is now available on Heroku:
-https://agile-reef-68577.herokuapp.com/
+https://calculator-kremer.herokuapp.com/
 
 
 ### Author:
