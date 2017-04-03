@@ -1,4 +1,4 @@
-## Weekend Three Challenge -- Calculator!
+## Weekend Challenge -- Calculator!
 
 This is a simple web calculator which can do basic math.  This calculator uses jQuery and express routes to perform basic calculations as one would expect from a desktop calculator.
 
